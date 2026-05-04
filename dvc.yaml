@@ -1,0 +1,18 @@
+stages:
+  load_data:
+    cmd: python src/load_data.py
+    deps:
+      - src/load_data.py
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - data/raw/credit_card.csv
+      - src/train.py
+
+  save_model:
+    cmd: python src/save_model.py
+    deps:
+      - src/save_model.py
+    outs:
+      - models/best_model.pkl
